@@ -1,0 +1,30 @@
+//$base-color: #ff0000;
+//$base-color: #00ff00;
+$base-color: #0000ff;
+
+$ratio: 15%;
+
+.container-1 {
+    display: flex;
+    flex-direction: column
+}
+
+.box {
+    margin: 10px;
+    padding: 10px;
+}
+
+.box-item:nth-child(1) {
+    color:black;
+    border-radius: 4px;
+    background-color: red;
+    box-shadow: -10px 10px 20px black;
+}
+
+.principal-font {
+    font-family: "Arial";
+}
+
+.principal-font {
+    font-family: "Comic Sans";
+}
