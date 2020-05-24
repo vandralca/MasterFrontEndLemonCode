@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-sass": "^4.14.1"
+  },
+  "scripts": {
+    "scss": "node-sass --watch scss -o css"
+  }
+}
