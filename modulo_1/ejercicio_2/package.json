@@ -1,18 +1,19 @@
 {
-  "name": "module_1_layouts",
+  "name": "ejercicio_2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass scss -o css"
+    "build": "rimraf dist && parcel build src/index.html",
+    "start": "parcel src/index.html --open"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "parcel": "^1.12.4",
-    "sass": "^1.26.7"
+    "sass": "^1.26.8"
   },
   "dependencies": {
-    "node-sass": "^4.14.1"
+    "rimraf": "^3.0.2"
   }
 }
