@@ -4,7 +4,7 @@ class Book {
 }
 
 class BookChecker {
-    public static isBookRead(books: Book[], titleToSearch: string) {
+    public static isBookRead(books: Book[], titleToSearch: string) : boolean {
         return books.some(b => b.title === titleToSearch && b.isRead);
     } // Implementation here
 }
