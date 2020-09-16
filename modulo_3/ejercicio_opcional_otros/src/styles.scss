@@ -1,0 +1,16 @@
+$color: navy;
+$border-color: #999999;
+$border-radius: 10px;
+$padding: 5px;
+
+.title {
+    color: $color;
+    border: 1px solid $border-color;
+    font-weight: bold;
+    border-radius: $border-radius;
+    padding: $padding;
+}
+
+img {
+    width: 300px;
+}

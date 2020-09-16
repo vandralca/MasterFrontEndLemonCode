@@ -1,0 +1,2 @@
+Se implementan las siguientes prácticas opcionales:
+- Implementación de la práctica básica usando Parcel en lugar de WebPack
