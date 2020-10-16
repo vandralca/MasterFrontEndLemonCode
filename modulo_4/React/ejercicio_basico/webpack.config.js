@@ -5,6 +5,11 @@ const basePath = __dirname;
 module.exports = {
   context: path.join(basePath, "src"),
   resolve: {
+    alias : {
+      layouts: path.resolve(__dirname, './src/layouts/'),
+      scenes: path.resolve(__dirname, './src/scenes/'),
+      pods: path.resolve(__dirname, './src/pods/'),
+    },
     extensions: [".js", ".ts", ".tsx"],
   },
   devtool: "eval-source-map",

@@ -12,5 +12,11 @@
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "layouts": ["layouts"],
+      "scenes": ["scenes"],
+      "pods": ["pods"],
+    },
   }
 }

@@ -17,11 +17,15 @@ const createDefaultMemberDetail = () => ({
   bio: "",
 });
 
-export const DetailPage: React.FC = () => {
+interface RouteParams {
+  id: string;
+}
+
+export const DetailComponent : React.FC = () => {
   const [member, setMember] = React.useState<MemberDetailEntity>(
     createDefaultMemberDetail()
   );
-  const { id } = useParams();
+  const { id } = useParams<RouteParams>();
 
   React.useEffect(() => {
     fetch(`https://api.github.com/users/${id}`)

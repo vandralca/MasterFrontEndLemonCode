@@ -3,9 +3,8 @@ import { Link, generatePath } from "react-router-dom";
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-import { OrganisationFilter } from "./organisation.filter";
-import { Paginador } from "./paginador";
-import { CenteredLayout } from './layouts';
+import { OrganisationFilterContainer } from "pods/organisationFilter";
+import { PagerContainer } from "pods/pager";
 
 export interface MemberEntity {
   id: string;
@@ -13,7 +12,7 @@ export interface MemberEntity {
   avatar_url: string;
 }
 
-export const ListPage: React.FC = () => {
+export const ListComponent: React.FC = () => {
   const pageSize = 5;
 
   const [data, setData] = React.useState<MemberEntity[]>([]);
@@ -57,40 +56,38 @@ export const ListPage: React.FC = () => {
   }, [data]);
 
   return (
-    <CenteredLayout>
-      <Card>
-        <CardHeader title="Hello from List page"></CardHeader>
-        <CardContent>
-          <OrganisationFilter defaultText="lemoncode" applyFilter={applyFilter} />
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Avatar</th>
-                <th>Id</th>
-                <th>Name</th>
+    <Card>
+      <CardHeader title="Hello from List page"></CardHeader>
+      <CardContent>
+        <OrganisationFilterContainer defaultText="lemoncode" applyFilter={applyFilter} />
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>Id</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {members.map((member) => (
+              <tr key={member.id}>
+                <td>
+                  <img src={member.avatar_url} style={{ width: "5rem" }} />
+                </td>
+                <td>
+                  <span>{member.id}</span>
+                </td>
+                <td>
+                  <Link to={generatePath("/detail/:id", { id: member.login })}>
+                    {member.login}
+                  </Link>{" "}
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {members.map((member) => (
-                <tr key={member.id}>
-                  <td>
-                    <img src={member.avatar_url} style={{ width: "5rem" }} />
-                  </td>
-                  <td>
-                    <span>{member.id}</span>
-                  </td>
-                  <td>
-                    <Link to={generatePath("/detail/:id", { id: member.login })}>
-                      {member.login}
-                    </Link>{" "}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <Paginador currentPage={pageNumber} lastPage={lastPage} setNewPageNumber={setPageContentByPageNumber} />
-        </CardContent>
-      </Card>
-    </CenteredLayout>
+            ))}
+          </tbody>
+        </table>
+        <PagerContainer currentPage={pageNumber} lastPage={lastPage} setNewPageNumber={setPageContentByPageNumber} />
+      </CardContent>
+    </Card>
   );
 };

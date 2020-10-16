@@ -7,7 +7,7 @@ interface Props {
     setNewPageNumber: (pageNumber: number) => void;
 }
 
-export const Paginador: React.FC<Props> = ({ currentPage, lastPage, setNewPageNumber }) => {
+export const PagerComponent: React.FC<Props> = ({ currentPage, lastPage, setNewPageNumber }) => {
     return (
         <>
             <span>Mostrando página &#9;{Math.min(currentPage, lastPage)} de un total de {lastPage}&#9; páginas.</span>
