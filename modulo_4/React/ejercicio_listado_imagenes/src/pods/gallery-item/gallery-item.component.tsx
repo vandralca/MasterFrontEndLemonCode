@@ -1,7 +1,7 @@
 import React from "react";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import * as classes from './gallery.item.styles';
+import * as classes from './gallery-item.styles';
 import { PictureInfoVm } from "models/vm";
 import { MainContext } from "contexts/main.context";
 
@@ -9,7 +9,7 @@ export interface GalleryItemProps {
     item: PictureInfoVm,
 }
 
-export const GalleryItem: React.FC<GalleryItemProps> = ({ item }) => {
+export const GalleryItemComponent : React.FC<GalleryItemProps> = ({ item }) => {
     const { addItemToCartById, removeItemFromCartById } = React.useContext(MainContext);
     const [itemValue, setItemValue] = React.useState(item);
 

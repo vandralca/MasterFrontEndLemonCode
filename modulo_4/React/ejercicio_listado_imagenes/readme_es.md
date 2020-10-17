@@ -8,7 +8,16 @@ tiene un checkbox que permite seleccionarlo y añadirlo al carrito de la compra 
 
 ## Mejoras incluídas
 
+- El carrito permite elementos tanto de "gatitos" como de "perritos" simultáneamente, incluso 
+cuando se navega entre galerías, pudiendo añadir/borrar de ambos tipos manteniendo la coherencia.
 - Haz que el carrito se puede ocultar.
 - Implementa una página de "checkout" para hacer el pedido.
 - Estilalo con material UI.
 - Añade una opcíon de vaciar carrito.
+
+## Revisión
+
+- Las escenas no tienen lógica
+- Cada pod se descompone en componente y container (los containers no llevan sufijo "container" en el
+nombre del componente React, sí en el nombre del fichero).
+- Routing usando variables TS en lugar de valores hardcodeados.

@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { AppContextProvider } from "contexts/app.context";
 import { PictureInfoVm } from "models/vm";
-import { MainPage } from "pages/mainPage";
-import { CheckoutPage } from "pages/checkoutPage";
+import { MainPage } from "pages/main";
+import { CheckoutPage } from "pages/checkout";
+import { switchRouting } from "core/routing";
 
 export const App: React.FC = () => {
     const [cartElementsCollection, setCartElementsCollection] = React.useState<PictureInfoVm[]>([]);
@@ -14,9 +15,9 @@ export const App: React.FC = () => {
             setCartElements={setCartElementsCollection}>
             <Router>
                 <Switch>
-                    <Route exact path="/" component={MainPage} />
-                    <Route exact path="/purchase" component={CheckoutPage} />
-                    <Redirect to="/" />
+                    <Route exact path={switchRouting.gallery} component={MainPage} />
+                    <Route exact path={switchRouting.checkout} component={CheckoutPage} />
+                    <Redirect to={switchRouting.gallery} />
                 </Switch>
             </Router>
         </AppContextProvider >

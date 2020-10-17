@@ -1,6 +1,6 @@
 import React from "react";
-import { ImageGallery } from "scenes/imageGallery/image.gallery.scene";
-import { ShoppingCart } from "scenes/shoppingCart/shopping.cart.scene";
+import { ImageGalleryScene } from "scenes/image-gallery/image-gallery.scene";
+import { ShoppingCartScene } from "scenes/shopping-cart/shopping-cart.scene";
 import { SplitScreenLayout } from "layouts/splitScreenLayout"
 import { PictureInfoVm } from "models/vm";
 import { mapPictureInfoModelToPictureInfoVm } from "models/vm/mapper";
@@ -81,8 +81,8 @@ export const MainPage: React.FC = () => {
             removeItemFromCartById={removeItemFromCartById}
             clearCart={clearCart}>
             <SplitScreenLayout>
-                <ImageGallery />
-                <ShoppingCart />
+                <ImageGalleryScene />
+                <ShoppingCartScene />
             </SplitScreenLayout>
         </MainContextProvider>
     );

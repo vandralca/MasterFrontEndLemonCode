@@ -4,12 +4,12 @@ import { IconButton } from "@material-ui/core";
 import PetsIcon from '@material-ui/icons/Pets';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import * as classes from './image.gallery.scene.styles';
+import * as classes from './image-gallery.styles';
 import { MainContext } from "contexts/main.context";
-import { GalleryItem } from "pods/galleryItem/gallery.item";
+import { GalleryItem } from "pods/gallery-item";
 import { SplitScreenContext } from "contexts";
 
-export const ImageGallery: React.FC = () => {
+export const ImageGalleryComponent : React.FC = () => {
     const { galleryElements, setAnimalFamily } = React.useContext(MainContext);
     const splitScreenContext = React.useContext(SplitScreenContext);
 

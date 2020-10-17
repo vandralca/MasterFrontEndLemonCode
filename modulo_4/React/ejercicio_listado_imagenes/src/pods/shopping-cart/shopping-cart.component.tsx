@@ -3,16 +3,17 @@ import { useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import * as classes from './shopping.cart.scene.style';
+import * as classes from './shopping-cart.style';
 import { MainContext } from "contexts/main.context";
-import { CartItem } from "pods/cartItem/cart.item";
+import { CartItem } from "pods/cart-item/cart-item.container";
+import { switchRouting } from "core/routing";
 
-export const ShoppingCart: React.FC = () => {
+export const ShoppingCartComponent : React.FC = () => {
     const { cartElements, clearCart } = React.useContext(MainContext);
     const history = useHistory();
 
     const checkOut = () => {
-        history.push("/purchase");
+        history.push(`${switchRouting.checkout}`);
     }
 
     return (

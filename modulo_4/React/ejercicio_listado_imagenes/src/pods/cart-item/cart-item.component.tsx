@@ -1,7 +1,7 @@
 import React from "react";
 import { IconButton } from "@material-ui/core";
 import Delete from '@material-ui/icons/Delete';
-import * as classes from './cart.item.styles';
+import * as classes from './cart-item.styles';
 import { PictureInfoVm } from "models/vm";
 import { MainContext } from "contexts/main.context";
 
@@ -10,7 +10,7 @@ export interface CartItemProps {
     readOnly: boolean,
 }
 
-export const CartItem: React.FC<CartItemProps> = ({ item, readOnly }) => {
+export const CartItemComponent : React.FC<CartItemProps> = ({ item, readOnly }) => {
     const { removeItemFromCartById } = React.useContext(MainContext);
     const [itemValue, setItemValue] = React.useState(item);
 

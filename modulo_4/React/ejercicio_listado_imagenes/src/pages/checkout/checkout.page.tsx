@@ -5,7 +5,8 @@ import PaymentIcon from '@material-ui/icons/Payment';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import * as classes from './checkout.page.styles';
 import { AppContext } from "contexts/app.context";
-import { CartItem } from "pods/cartItem/cart.item";
+import { CartItem } from "pods/cart-item/cart-item.container";
+import { switchRouting } from "core/routing";
 
 export const CheckoutPage: React.FC = () => {
     const { cartElements, setCartElements } = React.useContext(AppContext);
@@ -18,7 +19,7 @@ export const CheckoutPage: React.FC = () => {
     }
 
     const backToGallery = () => {
-        history.push("/");
+        history.push(`${switchRouting.gallery}`);
     }
 
     return (
