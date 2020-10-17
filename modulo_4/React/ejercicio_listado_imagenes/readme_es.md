@@ -21,3 +21,5 @@ cuando se navega entre galerías, pudiendo añadir/borrar de ambos tipos manteni
 - Cada pod se descompone en componente y container (los containers no llevan sufijo "container" en el
 nombre del componente React, sí en el nombre del fichero).
 - Routing usando variables TS en lugar de valores hardcodeados.
+- Se ha extraído a un servicio la parte correspondiente a la lógica de recuperación de imágenes
+- Se ha introducido algún pequeño custom hook a modo de uso

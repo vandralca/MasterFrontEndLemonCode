@@ -24,6 +24,7 @@
       "models": ["models"],
       "contexts": ["contexts"],
       "pages": ["pages"],
+      "services": ["services"],
     }
   },
   "include": ["./src/**/*"],

@@ -9,8 +9,12 @@ export interface GalleryItemProps {
     item: PictureInfoVm,
 }
 
+const useContext = () => {
+    return React.useContext(MainContext);
+};
+
 export const GalleryItemComponent : React.FC<GalleryItemProps> = ({ item }) => {
-    const { addItemToCartById, removeItemFromCartById } = React.useContext(MainContext);
+    const { addItemToCartById, removeItemFromCartById } = useContext();
     const [itemValue, setItemValue] = React.useState(item);
 
     React.useEffect(() => {

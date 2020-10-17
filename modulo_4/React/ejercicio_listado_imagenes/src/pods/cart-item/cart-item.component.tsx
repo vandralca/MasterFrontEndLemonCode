@@ -10,8 +10,12 @@ export interface CartItemProps {
     readOnly: boolean,
 }
 
+const useContext = () => {
+    return React.useContext(MainContext);
+};
+
 export const CartItemComponent : React.FC<CartItemProps> = ({ item, readOnly }) => {
-    const { removeItemFromCartById } = React.useContext(MainContext);
+    const { removeItemFromCartById } = useContext();
     const [itemValue, setItemValue] = React.useState(item);
 
     const removeItem = () => {

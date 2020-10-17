@@ -8,8 +8,12 @@ import { AppContext } from "contexts/app.context";
 import { CartItem } from "pods/cart-item/cart-item.container";
 import { switchRouting } from "core/routing";
 
+const useContext = () => {
+    return React.useContext(AppContext);
+};
+
 export const CheckoutPage: React.FC = () => {
-    const { cartElements, setCartElements } = React.useContext(AppContext);
+    const { cartElements, setCartElements } = useContext();
     const history = useHistory();
 
     const purchaseOrder = () => {

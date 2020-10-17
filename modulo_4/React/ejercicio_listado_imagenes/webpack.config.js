@@ -16,6 +16,7 @@ module.exports = {
       models: path.resolve(__dirname, './src/models/'),
       contexts: path.resolve(__dirname, './src/contexts/'),
       pages: path.resolve(__dirname, './src/pages/'),
+      services: path.resolve(__dirname, './src/services/'),
     },
     extensions: [".js", ".ts", ".tsx"],
   },

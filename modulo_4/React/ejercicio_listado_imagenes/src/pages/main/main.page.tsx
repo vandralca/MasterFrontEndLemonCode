@@ -2,46 +2,45 @@ import React from "react";
 import { ImageGalleryScene } from "scenes/image-gallery/image-gallery.scene";
 import { ShoppingCartScene } from "scenes/shopping-cart/shopping-cart.scene";
 import { SplitScreenLayout } from "layouts/splitScreenLayout"
+import { getImages } from "services/main.page.service";
 import { PictureInfoVm } from "models/vm";
 import { mapPictureInfoModelToPictureInfoVm } from "models/vm/mapper";
-import { getKittiesImages, getPuppiesImages } from "api/image.provider";
 import { AppContext } from "contexts/app.context";
 import { MainContextProvider } from "contexts/main.context";
 import { PictureInfoModel } from "models/dto";
 
+const useContext = () => {
+    return React.useContext(AppContext);
+};
+
+const mergeGalleryWithCart = (gallery: PictureInfoModel[], cart: PictureInfoVm[]) => {
+    const galleryCollectionVm = gallery.map(result => mapPictureInfoModelToPictureInfoVm(result))
+    const galleryCollectionVmNotMatchingCart = galleryCollectionVm.filter(gvm => !cart.some(c => c.id == gvm.id));
+    const galleryCollectionVmMatchingCart = galleryCollectionVm.filter(gvm => cart.some(c => c.id == gvm.id)).map(galleryImageVm => {
+        return {
+            ...galleryImageVm,
+            selected: true
+        };
+    });
+
+    return [...galleryCollectionVmNotMatchingCart, ...galleryCollectionVmMatchingCart].sort((c1, c2) => c1.id.localeCompare(c2.id));
+}
+
 export const MainPage: React.FC = () => {
-    const { cartElements, setCartElements } = React.useContext(AppContext);
+    const { cartElements, setCartElements } = useContext();
     const [galleryImagesCollection, setGalleryImagesCollection] = React.useState<PictureInfoVm[]>([]);
     const [animalFamily, setAnimalFamily] = React.useState<string>("");
 
     React.useEffect(() => {
-        if (!animalFamily || animalFamily == "kitties") {
-            getKittiesImages().then((imagesFromApi) => {
-                return setGalleryImagesCollection(mergeGalleryWithCart(imagesFromApi, cartElements));
-            })
-        }
-        else if (animalFamily == "puppies") {
-            getPuppiesImages().then((imagesFromApi) => {
-                return setGalleryImagesCollection(mergeGalleryWithCart(imagesFromApi, cartElements));
-            })
-        }
-        else {
-            setGalleryImagesCollection([]);
-        }
+        getImages(animalFamily).then((images) => {
+            if (images && images.length > 0) {
+                setGalleryImagesCollection(mergeGalleryWithCart(images, cartElements));
+            }
+            else {
+                setGalleryImagesCollection([]);
+            }
+        })
     }, [animalFamily]);
-
-    const mergeGalleryWithCart = (gallery: PictureInfoModel[], cart: PictureInfoVm[]) => {
-        const galleryCollectionVm = gallery.map(result => mapPictureInfoModelToPictureInfoVm(result))
-        const galleryCollectionVmNotMatchingCart = galleryCollectionVm.filter(gvm => !cart.some(c => c.id == gvm.id));
-        const galleryCollectionVmMatchingCart = galleryCollectionVm.filter(gvm => cart.some(c => c.id == gvm.id)).map(galleryImageVm => {
-            return {
-                ...galleryImageVm,
-                selected: true
-            };
-        });
-
-        return [...galleryCollectionVmNotMatchingCart, ...galleryCollectionVmMatchingCart].sort((c1, c2) => c1.id.localeCompare(c2.id));
-    }
 
     const setGalleryAndCartCollections = (cartElementIds: string[]) => {
         const currentCartElements = cartElements.filter(c => cartElementIds.some(id => c.id == id));
