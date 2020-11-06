@@ -3,6 +3,7 @@
 ## Resumen
 
 Partiendo de la implementación de la práctica básica inicial.
+
 CRUD: Crea la funcionalidad necesaria para eliminar y crear nuevas recetas desde la lista de recetas.
 
 Componente Logout y rutas privadas

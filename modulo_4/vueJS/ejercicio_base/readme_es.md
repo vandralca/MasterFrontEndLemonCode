@@ -3,7 +3,9 @@
 ## Resumen
 
 Sistema de Validaciones
+
 Mejora del Layout de la aplicación
+
 Crea un componente Snackbar (Toast) y sustituye los mensajes de la aplicación
 
 ## Mejoras incluídas aparte del ejercicio

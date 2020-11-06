@@ -3,6 +3,7 @@
 ## Resumen
 
 Partiendo de la implementación de la práctica básica inicial.
+
 Actualiza la lista de recetas (uso del componente v-data-table de Vuetify)
 
 ## Mejoras incluídas aparte del ejercicio
