@@ -1,4 +1,4 @@
-# Ejercicio básico
+# Ejercicio básico con v-data-table
 
 ## Resumen
 
