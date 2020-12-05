@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  display: inline-block;
+  width: 400px;
+}
+
+.field {
+  display: block;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.separator {
+  height: 20px;
+}
