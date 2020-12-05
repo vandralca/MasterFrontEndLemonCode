@@ -8,8 +8,9 @@ import { AuthService } from '../../service/auth/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  public user: string = '';
+  private user: string = '';
   private password: string = '';
+  private loginError: string = '';
 
   constructor(private AuthService: AuthService, private router: Router) {
 
@@ -29,6 +30,13 @@ export class LoginComponent implements OnInit {
     this.password = value;
   }
 
+  public get LoginError() : string {
+    return this.loginError;
+  }
+  public set LoginError(value: string) {
+    this.loginError = value;
+  }
+
   ngOnInit(): void {}
 
   public logIn() {
@@ -36,6 +44,9 @@ export class LoginComponent implements OnInit {
 
     if (loginSucess) {
       this.router.navigate(['/dashboard']);
+    }
+    else {
+      this.LoginError = 'Usuario y/o contraseña incorrectos';
     }
   }
 }
