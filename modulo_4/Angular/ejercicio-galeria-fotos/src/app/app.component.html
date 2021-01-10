@@ -1,0 +1,14 @@
+<div class="layout_app">
+  <div class="layout_header">
+    <app-cabecera-publica *ngIf="!IsUserLogged"></app-cabecera-publica>
+    <app-cabecera-privada *ngIf="IsUserLogged"></app-cabecera-privada>
+  </div>
+
+  <div class="layout_content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div>
+    <app-pie></app-pie>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon class="menu-cabecera">menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="router.navigate(['/home'])">
+    <span>Home</span>
+  </button>
+  <button mat-menu-item (click)="router.navigate(['/login'])">
+    <span>Login</span>
+  </button>
+  <button mat-menu-item (click)="router.navigate(['/acerca-de'])">
+    <span>Acerca de...</span>
+  </button>
+</mat-menu>

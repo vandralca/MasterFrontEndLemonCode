@@ -1,0 +1,27 @@
+.contenecor-galeria {
+  display: flex;
+  flex-direction: column;
+  background-color: lightslategray;
+  height: 100%;
+}
+
+.titulo {
+  font-size: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.contenedor-imagen {
+  display: inline-block;
+}
+
+.contenedor-imagen-con-titulo {
+  display: flex;
+  flex-direction: column;
+}
+
+.titulo-imagen {
+  font-size: 1.5em;
+  margin-top: 7px;
+  align-self: center;
+}

@@ -1,0 +1,27 @@
+<div class="marco-pagina contenecor-galeria">
+  <span class="titulo">Galería</span>
+
+  <div>
+    <div class="contenedor-imagen">
+      <div class="contenedor-imagen-con-titulo">
+        <img [src]="Imagenes[this.ImagenSeleccionada].src" [width]="imageWidth" appRotate="135" step="45" />
+
+        <span class="titulo-imagen">{{
+          Imagenes[this.ImagenSeleccionada].titulo
+        }}</span>
+      </div>
+    </div>
+  </div>
+
+  <app-botonera-galeria
+    [imagenes]="Imagenes"
+    [(imagenSeleccionada)]="ImagenSeleccionada"
+    (aumentar)="aumentarImagen()"
+    (disminuir)="disminuirImagen()"
+  ></app-botonera-galeria>
+
+  <app-carrusel-galeria
+    [imagenes]="Imagenes"
+    [(ImagenSeleccionada)]="ImagenSeleccionada"
+  ></app-carrusel-galeria>
+</div>
