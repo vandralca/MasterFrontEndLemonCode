@@ -1,4 +1,4 @@
-name: Continuous Integration for Jest
+name: Continuous Integration for Jest and Cypress
 
 on: pull_request
 
