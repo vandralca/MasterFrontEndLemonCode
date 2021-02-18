@@ -2,11 +2,11 @@ import { mapToCollection } from './collection.mapper';
 
 describe('common/mappers/collection.mapper spec', () => {
   describe('mapToCollection', () => {
-    it('shoudl return empty array when it feeds collectio equals undefined', () => {
+    it('shoudl return empty array when it feeds collection equals undefined', () => {
       //Arrange
       const value = undefined;
 
-      const map = item => ({
+      const map = (item) => ({
         value1: item.value1 * 2,
         value2: item.value2 + 'C',
       });
@@ -20,11 +20,11 @@ describe('common/mappers/collection.mapper spec', () => {
       expect(result).toEqual(valores);
     });
 
-    it('shoudl return empty array when it feeds collectio equals null', () => {
+    it('shoudl return empty array when it feeds collection equals null', () => {
       //Arrange
       const value = null;
 
-      const map = item => ({
+      const map = (item) => ({
         value1: item.value1 * 2,
         value2: item.value2 + 'C',
       });
@@ -38,11 +38,11 @@ describe('common/mappers/collection.mapper spec', () => {
       expect(result).toEqual(valores);
     });
 
-    it('shoudl return empty array when it feeds collectio equals empty array', () => {
+    it('shoudl return empty array when it feeds collection equals empty array', () => {
       //Arrange
       const value = [];
 
-      const map = item => ({
+      const map = (item) => ({
         value1: item.value1 * 2,
         value2: item.value2 + 'C',
       });
@@ -69,7 +69,7 @@ describe('common/mappers/collection.mapper spec', () => {
         },
       ];
 
-      const map = item => ({
+      const map = (item) => ({
         value1: item.value1 * 2,
         value2: item.value2 + 'C',
       });

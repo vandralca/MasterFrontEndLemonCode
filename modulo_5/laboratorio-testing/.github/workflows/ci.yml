@@ -1,0 +1,40 @@
+name: Continuous Integration for Jest
+
+on: pull_request
+
+jobs:
+  ci:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout from repository
+          uses: actions/checkout@v2
+        - name: Install dependencies
+          run: npm Install
+        - name: Build project
+          run: npm run Build
+        - name: Run Unit Tests
+          run: npm test
+
+  ci-e2e:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout from repository
+          uses: actions/checkout@v2
+        - name: Install dependencies
+          run: npm Install
+        - name: Build project
+          run: npm run Build
+        - name: Run Tests e2e
+          run: npm test
+        - name: Upload screenshots when some test fails
+          if: ${{ failure()}}
+          uses: actions/upload-artifact@v2
+          with:
+            name: screenshots
+            path: ./cypress/screenshots
+        - name: Upload videos when some test fails
+          if: ${{ failure()}}
+          uses: actions/upload-artifact@v2
+          with:
+            name: videos
+            path: ./cypress/videos
