@@ -9,10 +9,10 @@ jobs:
         - name: Checkout from repository
           uses: actions/checkout@v2
         - name: Install dependencies
-          run: npm Install
+          run: npm install
           working-directory: modulo_5/laboratorio-testing
         - name: Build project
-          run: npm run Build
+          run: npm run build
           working-directory: modulo_5/laboratorio-testing
         - name: Run Unit Tests
           run: npm test
@@ -24,10 +24,10 @@ jobs:
         - name: Checkout from repository
           uses: actions/checkout@v2
         - name: Install dependencies
-          run: npm Install
+          run: npm install
           working-directory: modulo_5/laboratorio-testing
         - name: Build project
-          run: npm run Build
+          run: npm run build
           working-directory: modulo_5/laboratorio-testing
         - name: Run Tests e2e
           run: npm test
