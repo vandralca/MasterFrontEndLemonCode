@@ -10,10 +10,13 @@ jobs:
           uses: actions/checkout@v2
         - name: Install dependencies
           run: npm install
+          working-directory: ./modulo_5/laboratorio-testing
         - name: Build project
           run: npm run build
+          working-directory: ./modulo_5/laboratorio-testing
         - name: Run Unit Tests
           run: npm test
+          working-directory: ./modulo_5/laboratorio-testing
 
   ci-e2e:
       runs-on: ubuntu-latest
