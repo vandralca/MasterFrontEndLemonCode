@@ -1,4 +1,0 @@
-Se implementan las siguientes prácticas opcionales:
-- Que muestre un hola mundo desarrollado con React.
-- Que tenga una versión de build de producción y otra para desarrollo.
-- Que tenga variables de entorno para desarrollo producción y para desarrollo.
