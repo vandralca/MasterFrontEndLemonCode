@@ -1,0 +1,46 @@
+name: Continuous Integration for Jest and Cypress
+
+on: pull_request
+
+jobs:
+  ci:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout from repository
+          uses: actions/checkout@v2
+        - name: Install dependencies
+          run: npm install
+          working-directory: ./modulo_5/laboratorio-testing
+        - name: Build project
+          run: npm run build
+          working-directory: ./modulo_5/laboratorio-testing
+        - name: Run Unit Tests
+          run: npm test
+          working-directory: ./modulo_5/laboratorio-testing
+
+  ci-e2e:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout from repository
+          uses: actions/checkout@v2
+        - name: Install dependencies
+          run: npm install
+          working-directory: ./modulo_5/laboratorio-testing
+        - name: Build project
+          run: npm run build
+          working-directory: ./modulo_5/laboratorio-testing
+        - name: Run Tests e2e
+          run: npm run test:e2e:ci
+          working-directory: ./modulo_5/laboratorio-testing
+        - name: Upload screenshots when some test fails
+          if: ${{ failure()}}
+          uses: actions/upload-artifact@v2
+          with:
+            name: screenshots
+            path: ./modulo_5/laboratorio-testing/cypress/screenshots
+        - name: Upload videos when some test fails
+          if: ${{ failure()}}
+          uses: actions/upload-artifact@v2
+          with:
+            name: videos
+            path: ./modulo_5/laboratorio-testing/cypress/videos
